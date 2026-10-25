@@ -1,0 +1,245 @@
+/* Small additions on top of the original style.css.
+   Nothing here changes the look of an existing element: it only styles
+   the new features (multiple badges, gallery, sizes, status timeline, form errors). */
+
+/* ---- loading + feedback ---- */
+.loading-block {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--muted);
+  font-size: 28px;
+}
+
+.field-error {
+  color: #b12704;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.form-alert {
+  background: #fcf4f4;
+  border: 1px solid #d00;
+  color: #b12704;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.form-group input.has-error,
+.form-group select.has-error,
+.form-group textarea.has-error {
+  border-color: #b12704;
+}
+
+/* ---- badges (one or several, stacked top-left) ---- */
+.product-badges {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.product-badges .product-badge {
+  position: static;
+}
+
+/* ---- product page gallery ---- */
+.gallery-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.gallery-thumb {
+  width: 64px;
+  height: 64px;
+  padding: 3px;
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.gallery-thumb:hover {
+  border-color: var(--muted);
+}
+
+.gallery-thumb.active {
+  border-color: var(--orange);
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+}
+
+/* ---- size picker ---- */
+.size-picker {
+  margin-bottom: 20px;
+}
+
+.size-picker-label {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.size-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.size-option {
+  min-width: 44px;
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.size-option:hover:not(:disabled) {
+  border-color: var(--text);
+}
+
+.size-option.active {
+  border-color: var(--orange);
+  background: #fff8e7;
+  box-shadow: 0 0 0 1px var(--orange);
+}
+
+.size-option:disabled {
+  opacity: 0.45;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+/* "Select Size" is a link styled like the Add to Cart button */
+a.add-to-cart-btn {
+  display: block;
+}
+
+/* ---- cart / checkout extras ---- */
+.cart-item-size {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.qty-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.review-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* ---- customer order status timeline ---- */
+.status-timeline {
+  display: flex;
+  list-style: none;
+  margin: 15px 0 20px;
+  padding: 0;
+}
+
+.status-timeline li {
+  flex: 1;
+  position: relative;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.status-timeline .dot {
+  display: block;
+  width: 14px;
+  height: 14px;
+  margin: 0 auto 6px;
+  border-radius: 50%;
+  background: var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+.status-timeline li::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -50%;
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+}
+
+.status-timeline li:first-child::before {
+  display: none;
+}
+
+.status-timeline li.done .dot,
+.status-timeline li.current .dot,
+.status-timeline li.done::before,
+.status-timeline li.current::before {
+  background: var(--success);
+}
+
+.status-timeline li.current .label {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.status-timeline .label,
+.status-timeline .when {
+  display: block;
+}
+
+.status-timeline .when {
+  font-size: 11px;
+}
+
+.order-cancelled {
+  color: #b12704;
+  font-weight: 600;
+  margin: 10px 0 15px;
+}
+
+@media (max-width: 480px) {
+  .status-timeline {
+    font-size: 10px;
+  }
+  .status-timeline .when {
+    display: none;
+  }
+}
+
+/* ---- All yellow buttons changed to mild blue ---- */
+:root {
+  --yellow: #4a90e2;
+}
+
+.btn-primary {
+  background-color: #4a90e2;
+  border-color: #3b7dd8;
+  color: #ffffff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #3b7dd8;
+  border-color: #2f6ea8;
+  color: #ffffff;
+}
+
