@@ -10,7 +10,7 @@ export const USER_COOKIE_NAME = 'raj_user_token';
 const cookieOptions = {
   httpOnly: true,
   secure: env.COOKIE_SECURE,
-  sameSite: env.COOKIE_SECURE ? 'none' : 'lax',
+  sameSite: 'lax',
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
 };
 
@@ -38,7 +38,7 @@ export function clearAdminCookie(res) {
   res.clearCookie(ADMIN_COOKIE_NAME, {
     httpOnly: true,
     secure: env.COOKIE_SECURE,
-    sameSite: env.COOKIE_SECURE ? 'none' : 'lax',
+    sameSite: 'lax',
   });
 }
 
@@ -46,7 +46,7 @@ export function clearUserCookie(res) {
   res.clearCookie(USER_COOKIE_NAME, {
     httpOnly: true,
     secure: env.COOKIE_SECURE,
-    sameSite: env.COOKIE_SECURE ? 'none' : 'lax',
+    sameSite: 'lax',
   });
 }
 

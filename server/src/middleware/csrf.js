@@ -8,7 +8,7 @@ export function issueCsrfToken(req, res) {
   res.cookie(CSRF_COOKIE_NAME, token, {
     httpOnly: true,
     secure: env.COOKIE_SECURE,
-    sameSite: env.COOKIE_SECURE ? 'none' : 'lax',
+    sameSite: 'lax',
     maxAge: 24 * 60 * 60 * 1000,
   });
   return token;

@@ -11,6 +11,9 @@
     "seed:products": "node src/scripts/seedProducts.js",
     "test": "vitest run"
   },
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cloudinary": "^2.9.0",
